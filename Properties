@@ -1,0 +1,19 @@
+secretId =
+secretKey =
+regionName = ap-tokyo
+bucketName =
+functionName =
+
+mavenExecutable =
+filePath =
+tmpFilePath =
+
+
+handler = com.fchen_group.TPDSInScf.Run.TenHandle::mainHandler
+runtime = Java8
+memorySize = 128
+timeout = 100
+blockNum = 16
+partNum = 16
+
+
