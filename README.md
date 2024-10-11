@@ -1,16 +1,16 @@
-# Cloud Storage Auditing System Using Serverless Computing
+# Cloud Storage Auditing System Using Serverless ComputingII
 
-云存储作为一种新型计算基础设施，极大地方便了用户构建应用系统，但同时也带来了数据安全问题。
-尽管现有的云存储审计方案在理论上取得了显著进展，实际应用中仍面临高成本和低效率的挑战。为此，本
-文提出了一种基于无服务器计算（Serverless Cloud Function, i.e., SCF) 的云存储审计系统，相比当前已
-有方案，从三个方面促进了云存储审计技术的实际可用性。第一，提出了一种基于多 TCP 连接的并行数据
-上云方案，提升了云存储审计系统的运行效率。第二，提出了一种增加云资源利用率、同时减少 SCF 执行
-时间的方法，降低了云存储审计成本。第三，提出了一种云服务系统部署自动化方法，提高了云存储审计
-系统的易用性。实验结果表明，该系统在大规模数据审计任务中表现卓越：此方案能够在现有的云服务环
-境中迅速部署，相比于现有方案，审计时间只需原系统的 10%，每次审计成本为原系统的 5%。因而，此系
-统为云存储审计方案的实际应用提供了有力支持，同时本文所提技术对无服务器计算应用有借鉴意义。
+Cloud storage, as a new type of computing infrastructure, greatly facilitates users in building application systems, but at the same time, it also brings data security issues.
+Although existing cloud storage audit solutions have made significant progress in theory, they still face challenges of high cost and low efficiency in practical applications. For this reason, this
+The article proposes a cloud storage audit system based on Serverless Cloud Function (SCF), which is more efficient than the current one
+There are plans that promote the practical availability of cloud storage audit technology from three aspects. Firstly, a parallel data based on multiple TCP connections was proposed
+The cloud based solution has improved the operational efficiency of the cloud storage audit system. Secondly, a method was proposed to increase cloud resource utilization while reducing SCF execution
+The method of time has reduced the cost of cloud storage auditing. Thirdly, an automated method for deploying cloud service systems has been proposed, which improves cloud storage auditing
+The usability of the system. The experimental results show that the system performs excellently in large-scale data auditing tasks: this solution can be applied in existing cloud service environments
+Rapid deployment in the environment, compared to existing solutions, the audit time is only 10% of the original system, and the cost of each audit is 5% of the original system. Therefore, this system
+The practical application of the unified cloud storage audit solution provides strong support, and the technology proposed in this article has reference significance for serverless computing applications.
 
-SCF 作为对象存储的计算接口，系统涉及用户、存储服务和计算服务三方。基于 SCF 的 云存储审计系统包含以下步骤：
+SCF, as a computing interface for object storage, involves three parties: users, storage services, and computing services. The SCF based cloud storage audit system includes the following steps:
 
 <div align="center">
     <img src="mdPics/System2.png" alt="System2" style="zoom:50%;" />
@@ -18,22 +18,26 @@ SCF 作为对象存储的计算接口，系统涉及用户、存储服务和计�
 
 ## Build
 
-我们使用java 1.8.0_202、tencentcloud sdk java 开发这个项目，并使用IntelliJ IDEA和Maven进行编译。与腾讯云相关的依赖使用了不同的版本，有关更多配置详细信息，请参阅工程的pom.xml文件.
 
-请设置Properties文件中的参数以给予系统访问OSS的权限，调用SCF服务的权限并设置审计时中间文件的产生位置。
+We developed this project using Java 1.8.0_202, Tencent Cloud SDK Java, and compiled it using IntelliJ IDEA and Maven. The dependencies related to Tencent Cloud use different versions. For more detailed configuration information, please refer to the pom.xml file of the project
+
+Please set the parameters in the Properties file to grant the system access to OSS, call SCF services, and set the location for generating intermediate files during auditing.
 
 
 ## Usage
 
-首先，请将此项目导入IntelliJ IDEA，它将自动导入pom.xml中的所有依赖项，请注意镜像源，以顺利的下载这些依赖。
+Firstly, please import this project into IntelliJ IDEA, which will automatically import all dependencies in pom.xml. Please pay attention to the mirrored source to smoothly download these dependencies.
 
-其次，您必须在腾讯云或其他云服务提供商中准备云对象存储服务和无服务器云功能服务，你需要拥有一个账户，并开通这两项服务。 项目会自行打包与部署，你只需设置好Properties文件。
+Secondly, you must prepare cloud object storage services and serverless cloud functionality services in Tencent Cloud or other cloud service providers. You need to have an account and activate these two services. The project will be self packaged and deployed, you just need to set up the Properties file.
 
-在Properties文件中:
-1 上面部分的配置与云相关，你需要提供访问云的凭证。
-2 中间部分与运行相关，你需要设置maven的路径，并给予一个临时空间以保存系统中间运算的文件，这些临时文件在执行完后可以删除。注意，filepath指的是你要审计的本地路径
-3 下面部分是一些默认参数，不需要修改。它可以保证系统在云上的高效运行。
+In the Properties file:
+
+The configuration in the above section is cloud related, and you need to provide credentials for accessing the cloud.
+
+The middle part is related to operation. You need to set the path of Maven and provide a temporary space to save the files of the system's intermediate operations. These temporary files can be deleted after execution. Note that the filename refers to the local path you want to audit
+
+The following section contains some default parameters that do not need to be modified. It can ensure the efficient operation of the system on the cloud.
 
 ## Contributing
 
-请随时破解我们的审计系统，我们很愿意一起交流。
+Please feel free to crack our audit system at any time, we are willing to communicate together.
