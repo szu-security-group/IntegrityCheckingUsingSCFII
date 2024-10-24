@@ -1,16 +1,15 @@
 # Cloud Storage Auditing System Using Serverless ComputingII
 
-Cloud storage, as a new type of computing infrastructure, greatly facilitates users in building application systems, but at the same time, it also brings data security issues.
-Although existing cloud storage audit solutions have made significant progress in theory, they still face challenges of high cost and low efficiency in practical applications. For this reason, this
-The article proposes a cloud storage audit system based on Serverless Cloud Function (SCF), which is more efficient than the current one
-There are plans that promote the practical availability of cloud storage audit technology from three aspects. Firstly, a parallel data based on multiple TCP connections was proposed
-The cloud based solution has improved the operational efficiency of the cloud storage audit system. Secondly, a method was proposed to increase cloud resource utilization while reducing SCF execution
-The method of time has reduced the cost of cloud storage auditing. Thirdly, an automated method for deploying cloud service systems has been proposed, which improves cloud storage auditing
-The usability of the system. The experimental results show that the system performs excellently in large-scale data auditing tasks: this solution can be applied in existing cloud service environments
-Rapid deployment in the environment, compared to existing solutions, the audit time is only 10% of the original system, and the cost of each audit is 5% of the original system. Therefore, this system
-The practical application of the unified cloud storage audit solution provides strong support, and the technology proposed in this article has reference significance for serverless computing applications.
+Cloud storage, as a modern infrastructure, significantly simplifies the development of application systems, yet it introduces data security challenges. While existing cloud storage audit solutions have made theoretical advancements, they still face issues of high cost and inefficiency in real-world use. 
 
-SCF, as a computing interface for object storage, involves three parties: users, storage services, and computing services. The SCF based cloud storage audit system includes the following steps:
+This project proposes a cloud storage auditing system based on Serverless Cloud Function (SCF), improving efficiency over current solutions. It enhances the practicality of cloud storage auditing through three key areas:
+1. **Improved Operational Efficiency:** Using parallel data transmission based on multiple TCP connections.
+2. **Cost Reduction:** A method to maximize cloud resource utilization while reducing SCF execution time.
+3. **Automated Deployment:** A system to streamline cloud service deployment, increasing usability.
+
+Experimental results demonstrate the system's strong performance in large-scale data auditing tasks. Compared to existing solutions, audit time is reduced to just 10%, while audit cost is only 5% of the original. This solution provides robust support for the practical application of unified cloud storage auditing, with valuable insights for serverless computing applications.
+
+SCF, as an interface for object storage, involves three key components: users, storage services, and computing services. The SCF-based cloud storage auditing system follows these steps:
 
 <div align="center">
     <img src="mdPics/System2.png" alt="System2" style="zoom:50%;" />
@@ -18,26 +17,25 @@ SCF, as a computing interface for object storage, involves three parties: users,
 
 ## Build
 
+This project is developed using **Java 1.8.0_202** with the **Tencent Cloud SDK** and compiled via **IntelliJ IDEA** and **Maven**. The project dependencies, including different versions of the Tencent Cloud SDK, can be found in the `pom.xml` file.
 
-We developed this project using Java 1.8.0_202, Tencent Cloud SDK Java, and compiled it using IntelliJ IDEA and Maven. The dependencies related to Tencent Cloud use different versions. For more detailed configuration information, please refer to the pom.xml file of the project
+Please configure the **Properties** file to enable access to OSS, SCF services, and to specify the location for intermediate audit files.
 
-Please set the parameters in the Properties file to grant the system access to OSS, call SCF services, and set the location for generating intermediate files during auditing.
+You can also package the project into a JAR file for usage. In this case, place the **Properties** file in the same directory as the JAR file and run the following command to execute:
+
+```bash
+java -cp TPDSInSCF-1.0-SNAPSHOT_Benchmark-jar-with-dependencies.jar com.fchen_group.TPDSInScf.Run.Client
 
 
 ## Usage
 
-Firstly, please import this project into IntelliJ IDEA, which will automatically import all dependencies in pom.xml. Please pay attention to the mirrored source to smoothly download these dependencies.
-
-Secondly, you must prepare cloud object storage services and serverless cloud functionality services in Tencent Cloud or other cloud service providers. You need to have an account and activate these two services. The project will be self packaged and deployed, you just need to set up the Properties file.
-
-In the Properties file:
-
-The configuration in the above section is cloud related, and you need to provide credentials for accessing the cloud.
-
-The middle part is related to operation. You need to set the path of Maven and provide a temporary space to save the files of the system's intermediate operations. These temporary files can be deleted after execution. Note that the filename refers to the local path you want to audit
-
-The following section contains some default parameters that do not need to be modified. It can ensure the efficient operation of the system on the cloud.
+1. **Project Setup:** Import the project into IntelliJ IDEA, which will automatically resolve dependencies specified in `pom.xml`. Ensure the correct mirror source is set to download these dependencies smoothly.
+2. **Cloud Service Setup:** Prepare cloud object storage and SCF services on Tencent Cloud (or other providers). Ensure these services are activated, as the project packages and deploys itself. You only need to configure the **Properties** file.
+3. **Properties Configuration:** 
+    - **Cloud Configuration:** Provide your cloud credentials for access.
+    - **Operation Configuration:** Set the Maven path and a temporary space for system intermediate files. These files can be deleted after execution. Specify the local path for the files you wish to audit.
+    - **Default Parameters:** These are preset to ensure efficient system performance on the cloud and generally don't need modification.
 
 ## Contributing
 
-Please feel free to crack our audit system at any time, we are willing to communicate together.
+Feel free to test and explore our auditing system. We welcome collaboration and feedback!
